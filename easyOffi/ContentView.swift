@@ -93,7 +93,20 @@ struct Tile: Identifiable {
     let name: String
 }
 
+struct Line: Shape {
+    var from: CGPoint
+    var to: CGPoint
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: from)
+        path.addLine(to: to)
+        return path
+    }
+}
+
 struct ContentView: View {
+    @State private var addButtonHidden = false;
     @State private var tiles: [Tile] = [
         Tile(id: 1, name: "Tile 1"),
         Tile(id: 2, name: "Tile 2"),
@@ -107,11 +120,12 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        ScrollView {
+        VStack(alignment: .leading) {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(tiles) { tile in
                     RoundedRectangle(cornerRadius: 10)
                         .frame(height: 100)
+                        .frame(width: 170)
                         .foregroundColor(Color.blue)
                         .overlay(
                             Text("\(tile.name) ID:\(tile.id)")
@@ -120,7 +134,7 @@ struct ContentView: View {
                         )
                         .contextMenu {
                             Button(action: {
-
+                                
                             }) {
                                 Text("Edit Name")
                                 Image(systemName: "pencil")
@@ -133,36 +147,55 @@ struct ContentView: View {
                                         Tile(id: index + 1, name: tile.name)
                                     }
                                 }
+                                addButtonHidden = false
                             }) {
                                 Text("Remove Tile")
                                 Image(systemName: "trash")
                             }
                         }
+                        
                     
                 }
-            }
-            .padding()
-            
-            // Button to add a new tile
-            HStack {
-                Spacer()
-                Button(action: {
-                    if(tiles.count < 12){
+                
+                
+                
+                
+                
+                Button (action: {
+                    if(tiles.count < 11){
                         // Add a new tile
                         tiles.append(Tile(id: tiles.count + 1, name: "Tile \(tiles.count + 1)"))
+                    }else{
+                        addButtonHidden = true;
+                        tiles.append(Tile(id: tiles.count + 1, name: "Tile \(tiles.count + 1)"))
                     }
-                }) {
-                    Text("Add Tile")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                Spacer()
+                    
+                }, label: {
+                    Text("Station hinzufügen")
+                        .frame(height: 100)
+                        .frame(width: 170)
+                        .foregroundColor(.black)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, style: StrokeStyle(
+                                    lineWidth: 3, dash: [10, 8]
+                                )
+                                )
+                        )
+                })
+                .opacity(addButtonHidden ? 0 : 1)
+                .disabled(addButtonHidden)
+                
+                
+                
             }
             .padding()
             
+            
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        
+        
     }
     
 }
