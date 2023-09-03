@@ -6,91 +6,42 @@
 //
 
 import SwiftUI
-/*
- 
- struct ContentView: View {
- @Environment(\.colorScheme) var currentMode
- @State private var tiles: [Int] = Array(1...10)
- let columns = [
- GridItem(.flexible(), spacing: 16),
- GridItem(.flexible(), spacing: 16)
- ]
- 
- var body: some View {
- VStack {
- ScrollView {
- LazyVGrid(columns: columns, spacing: 16) {
- ForEach(tiles, id: \.self) { tile in
- RoundedRectangle(cornerRadius: 10)
- .frame(height: 100)
- .foregroundColor(Color.primary)
- .overlay(
- Text("Tile \(tile + 1)")
- .foregroundColor(currentMode == .dark ? Color.green : Color.accentColor)
- .font(.headline)
- )
- .contextMenu {
- Button(action: {
- // Handle the context menu action for this tile
- print("Action for Tile \(tile + 1)")
- }) {
- Text("Name ändern")
- Image(systemName: "character.cursor.ibeam")
- }
- 
- Button(action: {
- // Handle the context menu action for this tile
- print("Action for Tile \(tile + 1)")
- }) {
- Text("Station ändern")
- Image(systemName: "square.and.pencil")
- }
- 
- Button(action: {
- // Handle the context menu action for this tile
- print("Action for Tile \(tile + 1)")
- // Remove the specific tile from the array
- if let index = tiles.firstIndex(of: tile) {
- tiles.remove(at: index)
- }
- 
- }) {
- Text("Station entfernen")
- .foregroundColor(Color.red)
- Image(systemName: "trash")
- }
- }
- }
- }
- .padding()
- }
- 
- HStack {
- Button(action: {
- if tiles.count < 12 { // Limit the maximum number of tiles to 20
- tiles.append(tiles.count + 1)
- }
- }) {
- Text("Station hinzufügen")
- }
- .padding()
- 
- }
- }
- }
- }
- 
- struct ContentView_Previews: PreviewProvider {
- static var previews: some View {
- ContentView()
- }
- }
- 
- */
+import UIKit
 
 struct Tile: Identifiable {
     let id: Int
     let name: String
+    
+    
+    @State public var isDragging = false
+    @State public var tileCenter: CGPoint? = nil
+
+    
+}
+
+class LineView: UIView {
+    
+    var startPoint: CGPoint = CGPoint.zero
+    var endPoint: CGPoint = CGPoint.zero
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        if let context = UIGraphicsGetCurrentContext() {
+            // Set line color and width
+            context.setStrokeColor(UIColor.black.cgColor)
+            context.setLineWidth(2.0)
+            
+            // Move to the starting point
+            context.move(to: startPoint)
+            
+            // Add a line to the ending point
+            context.addLine(to: endPoint)
+            
+            // Draw the line
+            context.strokePath()
+        }
+    }
 }
 
 struct Line: Shape {
@@ -105,6 +56,24 @@ struct Line: Shape {
     }
 }
 
+
+struct LineViewWrapper: UIViewRepresentable {
+    var startPoint: CGPoint
+    var endPoint: CGPoint
+    
+    func makeUIView(context: Context) -> LineView {
+        let lineView = LineView()
+        lineView.backgroundColor = .clear // Make the background clear
+        return lineView
+    }
+    
+    func updateUIView(_ uiView: LineView, context: Context) {
+        // Update the start and end points of the line
+        uiView.startPoint = startPoint
+        uiView.endPoint = endPoint
+        uiView.setNeedsDisplay() // Trigger a redraw of the line
+    }
+}
 struct ContentView: View {
     @State private var addButtonHidden = false;
     @State private var tiles: [Tile] = [
@@ -113,20 +82,31 @@ struct ContentView: View {
         Tile(id: 3, name: "Tile 3"),
         // Add more tiles as needed
     ]
+    @State private var lineStartPoint: CGPoint?
+    @State private var lineEndPoint: CGPoint?
+    @State private var currentDraggedTile: Tile?
+    @State private var currentDraggedTileID: Int?
+    
     
     var columns: [GridItem] = [
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16)
     ]
     
+    // Create a LineView instance
+    let lineView = LineView()
+    
     var body: some View {
         VStack(alignment: .leading) {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(tiles) { tile in
+                    let isDragging = tile.id == currentDraggedTile?.id
+                    
                     RoundedRectangle(cornerRadius: 10)
                         .frame(height: 100)
                         .frame(width: 170)
-                        .foregroundColor(Color.blue)
+                    //.foregroundColor(Color.blue)
+                        .foregroundColor(tile.isDragging ? Color.red : Color.black)
                         .overlay(
                             Text("\(tile.name) ID:\(tile.id)")
                                 .foregroundColor(.white)
@@ -153,14 +133,52 @@ struct ContentView: View {
                                 Image(systemName: "trash")
                             }
                         }
-                        
+                        .overlay(
+                            Group {
+                                if isDragging {
+                                    Line(from: CGPoint(x: 170/2, y: 100/2), to: lineEndPoint ?? CGPoint(x: 0, y: 0))
+                                        .stroke(Color.red, lineWidth: 3)
+                                        //.frame(width: 200, height: 200)
+                                        //.zIndex(99)
+                                }
+                            }
+                        )
+                        .gesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    print(tile)
+                                    self.currentDraggedTile = tile
+                                    //lineStartPoint = CGPoint(x: 170 / 2, y: 100 / 2)
+                                    lineEndPoint = value.location
+                                    self.currentDraggedTileID = tile.id
+                                }
+                                .onEnded { _ in
+                                    self.currentDraggedTile = nil
+                                    lineEndPoint = nil
+                                    lineStartPoint = nil
+                                    self.currentDraggedTileID = nil
+                                    
+                                }
+                        )
+                        /*.onAppear {
+                               let tileCenter = CGPoint(x: 170 / 2, y: 100 / 2) // Calculate the center of the tile
+                               tile.tileCenter = tileCenter // Update the tile's center point
+                            //lineStartPoint = tile.tileCenter // Set the line start point initially
+                        }*/
+                        .zIndex(tile.id == currentDraggedTileID ? 1 : 0)
+                    
+                    
+                
+                    
+                    
+                    
+                    
                     
                 }
+                .padding(0)
                 
                 
-                
-                
-                
+ 
                 Button (action: {
                     if(tiles.count < 11){
                         // Add a new tile
@@ -186,15 +204,12 @@ struct ContentView: View {
                 .opacity(addButtonHidden ? 0 : 1)
                 .disabled(addButtonHidden)
                 
-                
-                
             }
             .padding()
             
             
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        
         
     }
     
