@@ -45,11 +45,7 @@ struct AddView: View {
              .navigationTitle("Station hinzufügen")*/
             
             Group {
-                if viewModel.searchTerm.isEmpty {
-                    Text("Test")
-                    Text(viewModel.searchTerm)
-                } else {
-                
+                if !viewModel.searchTerm.isEmpty {
                     StationListView(viewModel: viewModel)
                 }
             }

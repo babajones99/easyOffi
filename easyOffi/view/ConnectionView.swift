@@ -15,51 +15,73 @@ struct ConnectionView: View {
     
     @State var linie: String?
     
-    @State var loading = true 
+    @State var loading = true
     
     @State var isError = false
     
     @State var errorMessage: String?
     
     @State var firstJourney: Journey?
-
+    
     
     
     var body: some View {
-    
-        VStack {
+        
+        VStack() {
             if(!loading && !isError){
-                let tempFirstJourney = firstJourney!
-                
-                HStack {
-                    VStack {
-                        Text(tempFirstJourney.legs[0].plannedDeparture, style: .time)
-                            .strikethrough()
-                        Text(tempFirstJourney.legs[0].departure, style: .time)
-                    }
-                    
-                    Text(startTile.name)
-                        .bold()
-                        .font(.title)
-                }
-                Spacer()
-                
-                Text(tempFirstJourney.legs[0].line.name)
-                
-                Spacer()
-                
-                HStack {
-                    VStack {
-                        Text(tempFirstJourney.legs[tempFirstJourney.legs.count - 1].plannedArrival, style: .time)
-                            .strikethrough()
-                        Text(tempFirstJourney.legs[tempFirstJourney.legs.count - 1].arrival, style: .time)
+                let tempFirstJourneyLegs = firstJourney!.legs
+                VStack(alignment: .leading, spacing: 10.0) {
+                    ForEach(tempFirstJourneyLegs, id: \.customId) { leg in
+                        let isFirst = leg.customId == tempFirstJourneyLegs[0].customId
+                        let isLast = leg.customId == tempFirstJourneyLegs[tempFirstJourneyLegs.count - 1].customId
+                        HStack {
+                            Circle()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.blue)
+                            
+                            VStack {
+                                Text(leg.plannedDeparture, style: .time)
+                                    .strikethrough()
+                                    .font(.system(size: 14))
+                                Text(leg.departure, style: .time)
+                                    .font(.system(size: 16))
+                            }
+                            
+                            Text(leg.origin.name)
+                                .font(isFirst ? Font.title.weight(.bold) : Font.body)
+                        }
+                        
+                        
+                        
+                        HStack {
+                            VerticalLine()
+                                .stroke(Color.blue, lineWidth: 4)
+                                .frame(width: 10, height: 80)
+                            Text(leg.line?.name ?? "Gehen")
+                        }
+                        
+                        HStack {
+                            Circle()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.blue)
+                            
+                            VStack {
+                                Text(leg.plannedArrival, style: .time)
+                                    .strikethrough()
+                                    .font(.system(size: 14))
+                                Text(leg.arrival, style: .time)
+                                    .font(.system(size: 16))
+                            }
+                            Text(leg.destination.name)
+                                .font(isLast ? Font.title.weight(.bold) : Font.body)
+                            
+                        }
+                        
                         
                     }
                     
-                    Text(endTile.name)
-                        .bold()
-                        .font(.title)
                 }
+                .padding(.top, 40.0)
                 
                 Spacer()
             }
@@ -75,7 +97,7 @@ struct ConnectionView: View {
                 }
             }
         )
-        .padding()
+        .padding(.leading)
         .task {
             do{
                 hafasResult = try await JourneyCall(startTile: startTile, endTile: endTile).getHafas()
@@ -94,6 +116,15 @@ struct ConnectionView: View {
                 isError = true
                 loading = false
             }
+        }
+    }
+    
+    struct VerticalLine: Shape {
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            path.move(to: CGPoint(x: rect.midX, y: rect.minY - 10))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY + 10))
+            return path
         }
     }
     

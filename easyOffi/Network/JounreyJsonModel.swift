@@ -10,7 +10,7 @@ struct Hafas: Codable {
     let earlierRef: String?
     let laterRef: String?
     let journeys: [Journey]
-    let realtimeDataUpdatedAt: Int
+    let realtimeDataUpdatedAt: Int?
 }
 
 // MARK: - Journey
@@ -24,21 +24,22 @@ struct Journey: Codable {
 
 // MARK: - Leg
 struct Leg: Codable {
+    let customId = UUID()
     let origin, destination: Destination
     let departure, plannedDeparture: Date
     let departureDelay: Int?
     let arrival, plannedArrival: Date
     let arrivalDelay: Int?
-    let reachable: Bool
-    let tripID: String
-    let line: LineHafas
-    let direction: String
+    let reachable: Bool?
+    let tripID: String?
+    let line: LineHafas?
+    let direction: String?
     let currentLocation: Location?
     let arrivalPrognosisType: String?
     let departurePrognosisType: String?
     let arrivalPlatform, plannedArrivalPlatform, departurePlatform: String?
     let plannedDeparturePlatform: String?
-    let remarks: [Remark]
+    let remarks: [Remark]?
 
     enum CodingKeys: String, CodingKey {
         case origin, destination, departure, plannedDeparture, departureDelay, arrival, plannedArrival, arrivalDelay, reachable
@@ -73,7 +74,7 @@ struct LineHafas: Codable {
     let type, id, fahrtNr, name: String
     let linePublic: Bool
     let adminCode, productName, mode, product: String
-    let lineOperator: Operator
+    let lineOperator: Operator?
     let additionalName: String?
 
     enum CodingKeys: String, CodingKey {

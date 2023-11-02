@@ -52,7 +52,7 @@ struct StationListView: View {
     }
 }
 
-struct AlbumListView_Previews: PreviewProvider {
+struct StationListView_Previews: PreviewProvider {
     static var previews: some View {
         StationListView(viewModel: StationListViewModel())
     }

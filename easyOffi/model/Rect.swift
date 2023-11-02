@@ -29,9 +29,10 @@ struct Rect: View {
         //.foregroundColor(tile.isDragging ? Color.red : Color.black)
             .overlay(
                 
-                Text(tile.name + " " + String(tile.orderNr))
+                Text(tile.name)
                     .foregroundColor(.white)
                     .font(.headline)
+                    .multilineTextAlignment(.center)
             )
             .contextMenu {
                 Button(role: .destructive, action: {
@@ -84,6 +85,7 @@ struct Rect: View {
                     dragStartTile = tile
                     
                     lineEndPoint = value.location
+                    dragEndTile = Tile(name: "Error", orderNr: -1, station_id: 0)
                                     
                     tiles.forEach { tile in
                         let frame = CGRect(x: tile.x, y: tile.y, width: 170, height: 100)
@@ -93,8 +95,11 @@ struct Rect: View {
                         }
                     }
                     
+                    if(dragStartTile.orderNr != -1 && dragEndTile.orderNr != -1){
+                        showConnectionSheet = true
+                    }
                     //print("Connected \(dragStartTile.name) and \(dragEndTile.name)")
-                    showConnectionSheet = true
+                    
                     
 
                     lineStartPoint = nil

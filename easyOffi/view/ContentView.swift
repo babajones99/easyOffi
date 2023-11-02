@@ -57,8 +57,8 @@ struct ContentView: View {
     @State private var currentDraggedTile: Tile?
     @State public var lineStartPoint: CGPoint?
     @State public var lineEndPoint: CGPoint?
-    @State public var dragStartTile = Tile(name: "Error", orderNr: 0, station_id: 0)
-    @State public var dragEndTile =  Tile(name: "Error", orderNr: 0, station_id: 0)
+    @State public var dragStartTile = Tile(name: "Error", orderNr: -1, station_id: 0)
+    @State public var dragEndTile =  Tile(name: "Error", orderNr: -1, station_id: 0)
     
     @State public var tileFrames = [CGRect](repeating: .zero, count: 0)
     
@@ -74,11 +74,6 @@ struct ContentView: View {
             LazyVGrid(columns: vGridLayout) {
                 
                 ForEach(tiles, id: \.self) { tile in
-                    //var isDragging = false
-                    /*if(tile.id == currentDraggedTile.id){
-                     var isDragging = true
-                     }*/
-                    //let isDragging = tile.id == currentDraggedTile.id
                     
                     Rect(tile: tile, lineStartPoint: $lineStartPoint, lineEndPoint: $lineEndPoint, dragStartTile: $dragStartTile, dragEndTile: $dragEndTile, showConnectionSheet: $showConnectionSheet)
                         .overlay(
@@ -101,30 +96,23 @@ struct ContentView: View {
                     
                     HStack {
                         Button (action: {
-                            
                             showAddSheet = true
-                            
-                            //tileFrames.append(CGRect(x: 0, y: 0, width: 0, height: 0))
-                            //let newTile = Tile(name: name, position: 1, station_id: 3565)
-                            
-                            //modelContext.insert(newTile)
-                            //updateTilePositions()
-                            //printTilePoitions()
-                            
+
                         }, label: {
                             Text("Station hinzufügen")
                                 .frame(height: 100)
                                 .frame(width: 170)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Foreground"))
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, style: StrokeStyle(
+                                        .stroke(Color("Foreground"), style: StrokeStyle(
                                             lineWidth: 3, dash: [10, 8]
                                         )
                                         )
                                 )
                         })
                     }
+                    .padding(10)
                 }
                 
             }
