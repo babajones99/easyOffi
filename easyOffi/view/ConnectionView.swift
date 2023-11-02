@@ -8,27 +8,78 @@
 import SwiftUI
 
 struct ConnectionView: View {
-    var startTile: Tile
-    var endTile: Tile
+    private var startTile: Tile
+    private var endTile: Tile
     
-    @State var hafasResult: Hafas?
+    @State private var hafasResult: Hafas?
     
-    @State var linie: String?
+    @State private var linie: String?
     
-    @State var loading = true
+    @State private var loading = true
     
-    @State var isError = false
+    @State private var isError = false
     
-    @State var errorMessage: String?
+    @State private var refreshing = false
     
-    @State var firstJourney: Journey?
+    @State private var errorMessage: String?
+    
+    @State private var firstJourney: Journey?
+    
+    @State private var update: Update?
+    
+    @State private var updatedAt = Date()
+    
+    @State private var rotationAngle: Angle = .degrees(0)
+    
+    
+    init(startTile: Tile, endTile: Tile, hafasResult: Hafas? = nil, linie: String? = nil, loading: Bool = true, isError: Bool = false, refreshing: Bool = false, errorMessage: String? = nil, firstJourney: Journey? = nil, update: Update? = nil, updatedAt: Date = Date()) {
+        self.startTile = startTile
+        self.endTile = endTile
+        self.hafasResult = hafasResult
+        self.linie = linie
+        self.loading = loading
+        self.isError = isError
+        self.refreshing = refreshing
+        self.errorMessage = errorMessage
+        self.firstJourney = firstJourney
+        self.update = update
+        self.updatedAt = updatedAt
+    }
+    
     
     
     
     var body: some View {
         
         VStack() {
+            
             if(!loading && !isError){
+                HStack {
+                    
+                        Spacer()
+                    Spacer()
+                    Button(action: {
+                        refreshing = true
+                        Task{
+                            await reload()
+                        }
+                        
+                    }) {
+                        Image(systemName: "arrow.clockwise.circle")
+                            .imageScale(.large)
+                            .rotationEffect(refreshing ? rotationAngle : .zero)
+                            .onAppear {
+                                withAnimation(.bouncy(duration: 1.0)){
+                                    rotationAngle = .degrees(360)
+                                }
+                            }
+                        
+                        
+                    }
+                    .cornerRadius(30)
+                    .offset(x: -20, y: 20)
+                }
+                
                 let tempFirstJourneyLegs = firstJourney!.legs
                 VStack(alignment: .leading, spacing: 10.0) {
                     ForEach(tempFirstJourneyLegs, id: \.customId) { leg in
@@ -77,11 +128,16 @@ struct ConnectionView: View {
                             
                         }
                         
-                        
                     }
+                    Spacer()
+                    //Text(Date(timeIntervalSince1970: (update != nil) ? Double(update?.realtimeDataUpdatedAt ?? Int(NSDate().timeIntervalSince1970)) : Double(hafasResult!.realtimeDataUpdatedAt!)).formatted(date: .omitted, time: .standard))
+                    Text("Letzte Aktualisierung: " + updatedAt.formatted(date: .omitted, time: .standard))
+                        .font(.system(size: 14))
+                        .foregroundStyle(Color("Weak"))
+                    
                     
                 }
-                .padding(.top, 40.0)
+                .padding(.top, 20.0)
                 
                 Spacer()
             }
@@ -119,6 +175,26 @@ struct ConnectionView: View {
         }
     }
     
+    func reload() async {
+        do{
+            hafasResult = try await JourneyCall(startTile: startTile, endTile: endTile).getHafas()
+            firstJourney = hafasResult!.journeys[0]
+            updatedAt = Date()
+            refreshing = false
+        }
+        catch NetworkError.notFound{
+            errorMessage = "Keine Verbindung gefunden"
+            isError = true
+            refreshing = false
+        }
+        catch {
+            print(error)
+            errorMessage = "Unbekannter Fehler"
+            isError = true
+            refreshing = false
+        }
+    }
+    
     struct VerticalLine: Shape {
         func path(in rect: CGRect) -> Path {
             var path = Path()
@@ -131,5 +207,5 @@ struct ConnectionView: View {
 }
 
 #Preview {
-    ConnectionView(startTile: Tile(name: "Rheda", orderNr: 1, station_id: 8000315), endTile: Tile(name: "Gütersloh", orderNr: 2, station_id: 8002461))
+    ConnectionView(startTile: Tile(name: "Rheda", orderNr: 1, station_id: 8000315), endTile: Tile(name: "Gütersloh", orderNr: 2, station_id: 923249))
 }

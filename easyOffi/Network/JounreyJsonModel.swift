@@ -13,9 +13,15 @@ struct Hafas: Codable {
     let realtimeDataUpdatedAt: Int?
 }
 
+// MARK: - Update
+struct Update: Codable {
+    let journey: Journey
+    let realtimeDataUpdatedAt: Int?
+}
+
 // MARK: - Journey
 struct Journey: Codable {
-    let type: String
+    let type: String?
     let legs: [Leg]
     let refreshToken: String
     let price: Price?

@@ -23,7 +23,6 @@ class StationCall {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
-        
         let fetchedData = try JSONDecoder().decode([Station].self, from: try mapResponse(response: (data,response)))
         
         return fetchedData
