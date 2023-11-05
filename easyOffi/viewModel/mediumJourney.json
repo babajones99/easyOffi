@@ -1,0 +1,1063 @@
+{
+    "earlierRef": null,
+    "laterRef": "3|OF|MT#14#473566#473566#473598#473598#0#0#165#473534#3#0#26#0#0#-2147483648#1#2|PDH#1982f499bd9b1d7c3d65ed18f79a02fb|RD#2112023|RT#192641|US#0|RS#INIT",
+    "journeys": [
+        {
+            "type": "journey",
+            "legs": [
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "8000315",
+                        "name": "Rheda-Wiedenbrück",
+                        "location": {
+                            "type": "location",
+                            "id": "8000315",
+                            "latitude": 51.857151,
+                            "longitude": 8.286535
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExpress": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "8002461",
+                        "name": "Gütersloh Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8002461",
+                            "latitude": 51.906862,
+                            "longitude": 8.385129
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "departure": "2023-11-02T19:30:00+01:00",
+                    "plannedDeparture": "2023-11-02T18:25:00+01:00",
+                    "departureDelay": 3900,
+                    "arrival": "2023-11-02T19:34:00+01:00",
+                    "plannedArrival": "2023-11-02T18:34:00+01:00",
+                    "arrivalDelay": 3600,
+                    "reachable": true,
+                    "tripId": "1|373274|1|80|2112023",
+                    "line": {
+                        "type": "line",
+                        "id": "rb-67",
+                        "fahrtNr": "79308",
+                        "name": "RB 67",
+                        "public": true,
+                        "adminCode": "R2RB__",
+                        "productName": "RB",
+                        "mode": "train",
+                        "product": "regional",
+                        "operator": {
+                            "type": "operator",
+                            "id": "eurobahn",
+                            "name": "eurobahn"
+                        },
+                        "additionalName": "RB 67"
+                    },
+                    "direction": "Bielefeld Hbf",
+                    "currentLocation": {
+                        "type": "location",
+                        "latitude": 51.861439,
+                        "longitude": 8.308523
+                    },
+                    "arrivalPlatform": "3",
+                    "plannedArrivalPlatform": "3",
+                    "arrivalPrognosisType": null,
+                    "departurePlatform": "1",
+                    "plannedDeparturePlatform": "1",
+                    "departurePrognosisType": null,
+                    "remarks": [
+                        {
+                            "text": "Number of bicycles conveyed limited",
+                            "type": "hint",
+                            "code": "bicycle-conveyance",
+                            "summary": "bicycles conveyed"
+                        },
+                        {
+                            "text": "2nd class only",
+                            "type": "hint",
+                            "code": "2nd-class-only",
+                            "summary": "2. class only"
+                        },
+                        {
+                            "text": "vehicle-mounted access aid",
+                            "type": "hint",
+                            "code": "boarding-ramp",
+                            "summary": "vehicle-mounted boarding ramp available"
+                        },
+                        {
+                            "type": "hint",
+                            "code": "EA",
+                            "text": "Behindertengerechte Ausstattung"
+                        },
+                        {
+                            "text": "air conditioning",
+                            "type": "hint",
+                            "code": "air-conditioned",
+                            "summary": "air-conditioned vehicle"
+                        },
+                        {
+                            "type": "hint",
+                            "code": "FM",
+                            "text": "Ticket machine on the train"
+                        }
+                    ]
+                },
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "8002461",
+                        "name": "Gütersloh Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8002461",
+                            "latitude": 51.906862,
+                            "longitude": 8.385129
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "930064",
+                        "name": "ZOB Bussteig C1-4, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "930064",
+                            "latitude": 51.907158,
+                            "longitude": 8.38352
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "station": {
+                            "type": "station",
+                            "id": "8002461",
+                            "name": "Gütersloh Hbf",
+                            "location": {
+                                "type": "location",
+                                "id": "8002461",
+                                "latitude": 51.906862,
+                                "longitude": 8.385129
+                            },
+                            "products": {
+                                "nationalExpress": true,
+                                "national": true,
+                                "regionalExpress": true,
+                                "regional": true,
+                                "suburban": false,
+                                "bus": true,
+                                "ferry": false,
+                                "subway": false,
+                                "tram": false,
+                                "taxi": true
+                            }
+                        }
+                    },
+                    "departure": "2023-11-02T19:34:00+01:00",
+                    "plannedDeparture": "2023-11-02T18:34:00+01:00",
+                    "departureDelay": 3600,
+                    "arrival": "2023-11-02T19:38:00+01:00",
+                    "plannedArrival": "2023-11-02T18:38:00+01:00",
+                    "arrivalDelay": 3600,
+                    "public": true,
+                    "walking": true,
+                    "distance": 609
+                },
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "930064",
+                        "name": "ZOB Bussteig C1-4, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "930064",
+                            "latitude": 51.907158,
+                            "longitude": 8.38352
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "station": {
+                            "type": "station",
+                            "id": "8002461",
+                            "name": "Gütersloh Hbf",
+                            "location": {
+                                "type": "location",
+                                "id": "8002461",
+                                "latitude": 51.906862,
+                                "longitude": 8.385129
+                            },
+                            "products": {
+                                "nationalExpress": true,
+                                "national": true,
+                                "regionalExpress": true,
+                                "regional": true,
+                                "suburban": false,
+                                "bus": true,
+                                "ferry": false,
+                                "subway": false,
+                                "tram": false,
+                                "taxi": true
+                            }
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "923249",
+                        "name": "Miele Werke, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "923249",
+                            "latitude": 51.911096,
+                            "longitude": 8.397849
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExpress": false,
+                            "regional": false,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "departure": "2023-11-02T20:03:00+01:00",
+                    "plannedDeparture": "2023-11-02T20:03:00+01:00",
+                    "departureDelay": null,
+                    "arrival": "2023-11-02T20:07:00+01:00",
+                    "plannedArrival": "2023-11-02T20:07:00+01:00",
+                    "arrivalDelay": null,
+                    "reachable": true,
+                    "tripId": "1|557724|0|80|2112023",
+                    "line": {
+                        "type": "line",
+                        "id": "5-owl053-201",
+                        "fahrtNr": "51083",
+                        "name": "Bus 201",
+                        "public": true,
+                        "adminCode": "owl053",
+                        "productName": "Bus",
+                        "mode": "bus",
+                        "product": "bus"
+                    },
+                    "direction": "Friedrichsdorf Kirche, Gütersloh",
+                    "arrivalPlatform": null,
+                    "plannedArrivalPlatform": null,
+                    "arrivalPrognosisType": "prognosed",
+                    "departurePlatform": null,
+                    "plannedDeparturePlatform": null,
+                    "departurePrognosisType": "prognosed",
+                    "cycle": {
+                        "min": 60,
+                        "max": 3600,
+                        "nr": 4
+                    },
+                    "alternatives": [
+                        {
+                            "tripId": "1|557645|15|80|2112023",
+                            "line": {
+                                "type": "line",
+                                "id": "5-owl052-85",
+                                "fahrtNr": "50424",
+                                "name": "Bus 85",
+                                "public": true,
+                                "adminCode": "owl052",
+                                "productName": "Bus",
+                                "mode": "bus",
+                                "product": "bus"
+                            },
+                            "direction": "Schloß Holte Bahnhof, Schloß Holte-Stukenbrock",
+                            "when": "2023-11-02T20:15:00+01:00",
+                            "plannedWhen": "2023-11-02T20:15:00+01:00",
+                            "delay": null
+                        },
+                        {
+                            "tripId": "1|557645|16|80|2112023",
+                            "line": {
+                                "type": "line",
+                                "id": "5-owl052-85",
+                                "fahrtNr": "50427",
+                                "name": "Bus 85",
+                                "public": true,
+                                "adminCode": "owl052",
+                                "productName": "Bus",
+                                "mode": "bus",
+                                "product": "bus"
+                            },
+                            "direction": "Schloß Holte Bahnhof, Schloß Holte-Stukenbrock",
+                            "when": "2023-11-02T21:15:00+01:00",
+                            "plannedWhen": "2023-11-02T21:15:00+01:00",
+                            "delay": null
+                        },
+                        {
+                            "tripId": "1|557756|0|80|2112023",
+                            "line": {
+                                "type": "line",
+                                "id": "5-owl053-201",
+                                "fahrtNr": "51272",
+                                "name": "Bus 201",
+                                "public": true,
+                                "adminCode": "owl053",
+                                "productName": "Bus",
+                                "mode": "bus",
+                                "product": "bus"
+                            },
+                            "direction": "Gütersloh Nord Pinguinweg",
+                            "when": "2023-11-02T21:16:00+01:00",
+                            "plannedWhen": "2023-11-02T21:16:00+01:00",
+                            "delay": null
+                        },
+                        {
+                            "tripId": "1|557645|17|80|2112023",
+                            "line": {
+                                "type": "line",
+                                "id": "5-owl052-85",
+                                "fahrtNr": "50430",
+                                "name": "Bus 85",
+                                "public": true,
+                                "adminCode": "owl052",
+                                "productName": "Bus",
+                                "mode": "bus",
+                                "product": "bus"
+                            },
+                            "direction": "Schloß Holte Bahnhof, Schloß Holte-Stukenbrock",
+                            "when": "2023-11-02T22:15:00+01:00",
+                            "plannedWhen": "2023-11-02T22:15:00+01:00",
+                            "delay": null
+                        }
+                    ]
+                }
+            ],
+            "refreshToken": "T$A=1@O=Rheda-Wiedenbrück@L=8000315@a=128@$A=1@O=Gütersloh Hbf@L=8002461@a=128@$202311021825$202311021834$RB 79308$$1$$$$$$§W$A=1@O=Gütersloh Hbf@L=8002461@a=128@$A=1@O=ZOB Bussteig C1-4, Gütersloh@L=930064@a=128@$202311021834$202311021838$$$1$$$$$$§T$A=1@O=ZOB Bussteig C1-4, Gütersloh@L=930064@a=128@$A=1@O=Miele Werke, Gütersloh@L=923249@a=128@$202311022003$202311022007$Bus  201$$1$$$$$$",
+            "cycle": {
+                "min": 60
+            },
+            "price": {
+                "amount": 25.6,
+                "currency": "EUR",
+                "hint": null
+            }
+        },
+        {
+            "type": "journey",
+            "legs": [
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "8000315",
+                        "name": "Rheda-Wiedenbrück",
+                        "location": {
+                            "type": "location",
+                            "id": "8000315",
+                            "latitude": 51.857151,
+                            "longitude": 8.286535
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExpress": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "8002461",
+                        "name": "Gütersloh Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8002461",
+                            "latitude": 51.906862,
+                            "longitude": 8.385129
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "departure": "2023-11-02T20:13:00+01:00",
+                    "plannedDeparture": "2023-11-02T20:13:00+01:00",
+                    "departureDelay": 0,
+                    "arrival": "2023-11-02T20:18:00+01:00",
+                    "plannedArrival": "2023-11-02T20:18:00+01:00",
+                    "arrivalDelay": 0,
+                    "reachable": true,
+                    "tripId": "1|374022|0|80|2112023",
+                    "line": {
+                        "type": "line",
+                        "id": "rb-69",
+                        "fahrtNr": "89993",
+                        "name": "RB 69",
+                        "public": true,
+                        "adminCode": "R2RB__",
+                        "productName": "RB",
+                        "mode": "train",
+                        "product": "regional",
+                        "operator": {
+                            "type": "operator",
+                            "id": "eurobahn",
+                            "name": "eurobahn"
+                        },
+                        "additionalName": "RB 69"
+                    },
+                    "direction": "Bielefeld Hbf",
+                    "currentLocation": {
+                        "type": "location",
+                        "latitude": 51.706528,
+                        "longitude": 7.771363
+                    },
+                    "arrivalPlatform": "3",
+                    "plannedArrivalPlatform": "3",
+                    "arrivalPrognosisType": "prognosed",
+                    "departurePlatform": "8",
+                    "plannedDeparturePlatform": "8",
+                    "departurePrognosisType": "prognosed",
+                    "remarks": [
+                        {
+                            "text": "Number of bicycles conveyed limited",
+                            "type": "hint",
+                            "code": "bicycle-conveyance",
+                            "summary": "bicycles conveyed"
+                        },
+                        {
+                            "text": "vehicle-mounted access aid",
+                            "type": "hint",
+                            "code": "boarding-ramp",
+                            "summary": "vehicle-mounted boarding ramp available"
+                        },
+                        {
+                            "type": "hint",
+                            "code": "EA",
+                            "text": "Behindertengerechte Ausstattung"
+                        },
+                        {
+                            "text": "power sockets for laptop",
+                            "type": "hint",
+                            "code": "power-sockets",
+                            "summary": "power sockets available"
+                        },
+                        {
+                            "text": "air conditioning",
+                            "type": "hint",
+                            "code": "air-conditioned",
+                            "summary": "air-conditioned vehicle"
+                        },
+                        {
+                            "type": "hint",
+                            "code": "FM",
+                            "text": "Ticket machine on the train"
+                        },
+                        {
+                            "type": "status",
+                            "summary": "RB 89993: Rheda-Wiedenbrück->Gütersloh Hbf: Disruption. (Quelle: zuginfo.nrw)",
+                            "code": null,
+                            "text": "Aufgrund des Orkantiefs Emir kann es zu Einschränkungen im Bahnverkehr kommen. Genauere Informationen zu Ihrer Linie finden Sie unter zuginfo.nrw In der Folge kommt es jetzt zu Verspätungen und Teilausfällen. Kurzfristig kann es zu Änderungen im Zuglauf kommen. Bitte prüfen Sie Ihre Reiseverbindung kurz vor der Abfahrt des Zuges. Der Baum auf der Strecke im Raum Gronau (Westf) wurde beseitigt. In der Folge kann es noch vereinzelt zu Verspätungen und ggf. zu Teilausfällen kommen. Bitte prüfen Sie den Zuglauf in der Onlinereiseauskunft. Die Züge fahren wieder auf der geplanten Strecke mit allen geplanten Halten."
+                        }
+                    ]
+                },
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "8002461",
+                        "name": "Gütersloh Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8002461",
+                            "latitude": 51.906862,
+                            "longitude": 8.385129
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "930064",
+                        "name": "ZOB Bussteig C1-4, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "930064",
+                            "latitude": 51.907158,
+                            "longitude": 8.38352
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "station": {
+                            "type": "station",
+                            "id": "8002461",
+                            "name": "Gütersloh Hbf",
+                            "location": {
+                                "type": "location",
+                                "id": "8002461",
+                                "latitude": 51.906862,
+                                "longitude": 8.385129
+                            },
+                            "products": {
+                                "nationalExpress": true,
+                                "national": true,
+                                "regionalExpress": true,
+                                "regional": true,
+                                "suburban": false,
+                                "bus": true,
+                                "ferry": false,
+                                "subway": false,
+                                "tram": false,
+                                "taxi": true
+                            }
+                        }
+                    },
+                    "departure": "2023-11-02T20:18:00+01:00",
+                    "plannedDeparture": "2023-11-02T20:18:00+01:00",
+                    "departureDelay": null,
+                    "arrival": "2023-11-02T20:22:00+01:00",
+                    "plannedArrival": "2023-11-02T20:22:00+01:00",
+                    "arrivalDelay": null,
+                    "public": true,
+                    "walking": true,
+                    "distance": 609
+                },
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "930064",
+                        "name": "ZOB Bussteig C1-4, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "930064",
+                            "latitude": 51.907158,
+                            "longitude": 8.38352
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "station": {
+                            "type": "station",
+                            "id": "8002461",
+                            "name": "Gütersloh Hbf",
+                            "location": {
+                                "type": "location",
+                                "id": "8002461",
+                                "latitude": 51.906862,
+                                "longitude": 8.385129
+                            },
+                            "products": {
+                                "nationalExpress": true,
+                                "national": true,
+                                "regionalExpress": true,
+                                "regional": true,
+                                "suburban": false,
+                                "bus": true,
+                                "ferry": false,
+                                "subway": false,
+                                "tram": false,
+                                "taxi": true
+                            }
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "923249",
+                        "name": "Miele Werke, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "923249",
+                            "latitude": 51.911096,
+                            "longitude": 8.397849
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExpress": false,
+                            "regional": false,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "departure": "2023-11-02T20:33:00+01:00",
+                    "plannedDeparture": "2023-11-02T20:33:00+01:00",
+                    "departureDelay": null,
+                    "arrival": "2023-11-02T20:48:00+01:00",
+                    "plannedArrival": "2023-11-02T20:48:00+01:00",
+                    "arrivalDelay": null,
+                    "reachable": true,
+                    "tripId": "1|557725|0|80|2112023",
+                    "line": {
+                        "type": "line",
+                        "id": "9-owl053-201",
+                        "fahrtNr": "51084",
+                        "name": "AST 201",
+                        "public": true,
+                        "adminCode": "owl053",
+                        "productName": "AST",
+                        "mode": "taxi",
+                        "product": "taxi"
+                    },
+                    "direction": "Friedrichsdorf Kirche, Gütersloh",
+                    "arrivalPlatform": null,
+                    "plannedArrivalPlatform": null,
+                    "arrivalPrognosisType": "prognosed",
+                    "departurePlatform": null,
+                    "plannedDeparturePlatform": null,
+                    "departurePrognosisType": "prognosed",
+                    "remarks": [
+                        {
+                            "type": "hint",
+                            "code": "r;",
+                            "text": "TaxiBus/AST; Tel. 05231-977681 Anmeldung spät. 30 Min vor Abfahrt"
+                        }
+                    ]
+                }
+            ],
+            "refreshToken": "T$A=1@O=Rheda-Wiedenbrück@L=8000315@a=128@$A=1@O=Gütersloh Hbf@L=8002461@a=128@$202311022013$202311022018$RB 89993$$1$$$$$$§W$A=1@O=Gütersloh Hbf@L=8002461@a=128@$A=1@O=ZOB Bussteig C1-4, Gütersloh@L=930064@a=128@$202311022018$202311022022$$$1$$$$$$§T$A=1@O=ZOB Bussteig C1-4, Gütersloh@L=930064@a=128@$A=1@O=Miele Werke, Gütersloh@L=923249@a=128@$202311022033$202311022048$AST  201$$1$$$$$$",
+            "remarks": [],
+            "price": {
+                "amount": 4.3,
+                "currency": "EUR",
+                "hint": null
+            }
+        },
+        {
+            "type": "journey",
+            "legs": [
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "8000315",
+                        "name": "Rheda-Wiedenbrück",
+                        "location": {
+                            "type": "location",
+                            "id": "8000315",
+                            "latitude": 51.857151,
+                            "longitude": 8.286535
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExpress": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "8002461",
+                        "name": "Gütersloh Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8002461",
+                            "latitude": 51.906862,
+                            "longitude": 8.385129
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "departure": "2023-11-02T20:46:00+01:00",
+                    "plannedDeparture": "2023-11-02T20:43:00+01:00",
+                    "departureDelay": 180,
+                    "arrival": "2023-11-02T20:51:00+01:00",
+                    "plannedArrival": "2023-11-02T20:48:00+01:00",
+                    "arrivalDelay": 180,
+                    "reachable": true,
+                    "tripId": "1|306157|0|80|2112023",
+                    "line": {
+                        "type": "line",
+                        "id": "re-6",
+                        "fahrtNr": "89733",
+                        "name": "RE 6",
+                        "public": true,
+                        "adminCode": "NXRE__",
+                        "productName": "RE",
+                        "mode": "train",
+                        "product": "regional",
+                        "operator": {
+                            "type": "operator",
+                            "id": "national-express",
+                            "name": "National Express"
+                        },
+                        "additionalName": "RE 6"
+                    },
+                    "direction": "Herford",
+                    "currentLocation": {
+                        "type": "location",
+                        "latitude": 51.447369,
+                        "longitude": 6.943358
+                    },
+                    "arrivalPlatform": "3",
+                    "plannedArrivalPlatform": "3",
+                    "arrivalPrognosisType": "prognosed",
+                    "departurePlatform": "8",
+                    "plannedDeparturePlatform": "8",
+                    "departurePrognosisType": "prognosed",
+                    "remarks": [
+                        {
+                            "type": "hint",
+                            "code": "N ",
+                            "text": "\"RRX Rhein-Ruhr-Express\""
+                        },
+                        {
+                            "text": "Number of bicycles conveyed limited",
+                            "type": "hint",
+                            "code": "bicycle-conveyance",
+                            "summary": "bicycles conveyed"
+                        },
+                        {
+                            "text": "Behindertengerechtes Fahrzeug",
+                            "type": "hint",
+                            "code": "barrier-free-vehicle",
+                            "summary": "barrier-free vehicle"
+                        },
+                        {
+                            "text": "space for wheelchairs",
+                            "type": "hint",
+                            "code": "wheelchairs-space",
+                            "summary": "space for wheelchairs"
+                        },
+                        {
+                            "text": "power sockets for laptop",
+                            "type": "hint",
+                            "code": "power-sockets",
+                            "summary": "power sockets available"
+                        },
+                        {
+                            "text": "air conditioning",
+                            "type": "hint",
+                            "code": "air-conditioned",
+                            "summary": "air-conditioned vehicle"
+                        },
+                        {
+                            "text": "Wifi available",
+                            "type": "hint",
+                            "code": "wifi",
+                            "summary": "WiFi available"
+                        },
+                        {
+                            "type": "status",
+                            "summary": "RE 89733: Rheda-Wiedenbrück->Gütersloh Hbf: Disruption. (Quelle: zuginfo.nrw)",
+                            "code": null,
+                            "text": "Aufgrund des Orkantiefs Emir kann es zu Einschränkungen im Bahnverkehr kommen. Genauere Informationen zu Ihrer Linie finden Sie unter zuginfo.nrw"
+                        },
+                        {
+                            "type": "status",
+                            "summary": "RE 89733: Rheda-Wiedenbrück->Gütersloh Hbf: Disruption. (Quelle: zuginfo.nrw)",
+                            "code": null,
+                            "text": "Aufgrund von Unregelmäßigkeiten bei Bauarbeiten im Raum Essen Hbf kommt es zu Beeinträchtigungen. Es kommt in Essen Hbf aufgrund der Bauarbeiten zu einer eingeschränkten Gleisverfügbarkeit, dadurch  kann es zu Gleisänderungen kommen. In der Folge kommt es jetzt zu Verspätungen und Teilausfällen, Komplettausfälle sind ebenfalls möglich. Genaue Informationen zur Dauer der Beeinträchtigung liegen leider noch nicht vor. Die Züge aus Richtung Aachen Hbf enden und beginnen in Duisburg Hbf. Die Folge sind Teilausfälle zwischen Duisburg Hbf und Essen-Steele. Bitte prüfen Sie Ihre Reiseverbindung kurz vor der Abfahrt des Zuges. Bitte nutzen Sie alternativ die S 1 zwischen Duisburg Hbf und Essen-Steele Ost. Zwischen Gelsenkirchen Hbf und Duisburg Hbf nutzen Sie bitte die Züge der Linie RE 42."
+                        },
+                        {
+                            "type": "status",
+                            "summary": "RE 89733: Rheda-Wiedenbrück->Gütersloh Hbf: Construction work. (Quelle: zuginfo.nrw)",
+                            "code": null,
+                            "text": "Aufgrund von Brücken- und Lärmschutzarbeiten kommt es im Großraum Gütersloh - Bielefeld - Minden (Westf) zu Fahrplanänderungen."
+                        }
+                    ]
+                },
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "8002461",
+                        "name": "Gütersloh Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8002461",
+                            "latitude": 51.906862,
+                            "longitude": 8.385129
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "930064",
+                        "name": "ZOB Bussteig C1-4, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "930064",
+                            "latitude": 51.907158,
+                            "longitude": 8.38352
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "station": {
+                            "type": "station",
+                            "id": "8002461",
+                            "name": "Gütersloh Hbf",
+                            "location": {
+                                "type": "location",
+                                "id": "8002461",
+                                "latitude": 51.906862,
+                                "longitude": 8.385129
+                            },
+                            "products": {
+                                "nationalExpress": true,
+                                "national": true,
+                                "regionalExpress": true,
+                                "regional": true,
+                                "suburban": false,
+                                "bus": true,
+                                "ferry": false,
+                                "subway": false,
+                                "tram": false,
+                                "taxi": true
+                            }
+                        }
+                    },
+                    "departure": "2023-11-02T20:51:00+01:00",
+                    "plannedDeparture": "2023-11-02T20:48:00+01:00",
+                    "departureDelay": 180,
+                    "arrival": "2023-11-02T20:55:00+01:00",
+                    "plannedArrival": "2023-11-02T20:52:00+01:00",
+                    "arrivalDelay": 180,
+                    "public": true,
+                    "walking": true,
+                    "distance": 609
+                },
+                {
+                    "origin": {
+                        "type": "stop",
+                        "id": "930064",
+                        "name": "ZOB Bussteig C1-4, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "930064",
+                            "latitude": 51.907158,
+                            "longitude": 8.38352
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExpress": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "station": {
+                            "type": "station",
+                            "id": "8002461",
+                            "name": "Gütersloh Hbf",
+                            "location": {
+                                "type": "location",
+                                "id": "8002461",
+                                "latitude": 51.906862,
+                                "longitude": 8.385129
+                            },
+                            "products": {
+                                "nationalExpress": true,
+                                "national": true,
+                                "regionalExpress": true,
+                                "regional": true,
+                                "suburban": false,
+                                "bus": true,
+                                "ferry": false,
+                                "subway": false,
+                                "tram": false,
+                                "taxi": true
+                            }
+                        }
+                    },
+                    "destination": {
+                        "type": "stop",
+                        "id": "923249",
+                        "name": "Miele Werke, Gütersloh",
+                        "location": {
+                            "type": "location",
+                            "id": "923249",
+                            "latitude": 51.911096,
+                            "longitude": 8.397849
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExpress": false,
+                            "regional": false,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        }
+                    },
+                    "departure": "2023-11-02T21:03:00+01:00",
+                    "plannedDeparture": "2023-11-02T21:03:00+01:00",
+                    "departureDelay": null,
+                    "arrival": "2023-11-02T21:18:00+01:00",
+                    "plannedArrival": "2023-11-02T21:18:00+01:00",
+                    "arrivalDelay": null,
+                    "reachable": true,
+                    "tripId": "1|557725|1|80|2112023",
+                    "line": {
+                        "type": "line",
+                        "id": "9-owl053-201",
+                        "fahrtNr": "51085",
+                        "name": "AST 201",
+                        "public": true,
+                        "adminCode": "owl053",
+                        "productName": "AST",
+                        "mode": "taxi",
+                        "product": "taxi"
+                    },
+                    "direction": "Friedrichsdorf Kirche, Gütersloh",
+                    "arrivalPlatform": null,
+                    "plannedArrivalPlatform": null,
+                    "arrivalPrognosisType": "prognosed",
+                    "departurePlatform": null,
+                    "plannedDeparturePlatform": null,
+                    "departurePrognosisType": "prognosed",
+                    "remarks": [
+                        {
+                            "type": "hint",
+                            "code": "r;",
+                            "text": "TaxiBus/AST; Tel. 05231-977681 Anmeldung spät. 30 Min vor Abfahrt"
+                        }
+                    ]
+                }
+            ],
+            "refreshToken": "T$A=1@O=Rheda-Wiedenbrück@L=8000315@a=128@$A=1@O=Gütersloh Hbf@L=8002461@a=128@$202311022043$202311022048$RE 89733$$1$$$$$$§W$A=1@O=Gütersloh Hbf@L=8002461@a=128@$A=1@O=ZOB Bussteig C1-4, Gütersloh@L=930064@a=128@$202311022048$202311022052$$$1$$$$$$§T$A=1@O=ZOB Bussteig C1-4, Gütersloh@L=930064@a=128@$A=1@O=Miele Werke, Gütersloh@L=923249@a=128@$202311022103$202311022118$AST  201$$1$$$$$$",
+            "remarks": [],
+            "price": {
+                "amount": 4.3,
+                "currency": "EUR",
+                "hint": null
+            }
+        }
+    ],
+    "realtimeDataUpdatedAt": 1698949719
+}
