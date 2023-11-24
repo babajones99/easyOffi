@@ -11,8 +11,11 @@ struct collapsedJourney: View {
     private let varJourney: Journey
     @State private var totalTime = 0.0
     
-    init(varJourney: Journey) {
+    let journeyNS: Namespace.ID
+    
+    init(varJourney: Journey, journeyNS: Namespace.ID) {
         self.varJourney = varJourney
+        self.journeyNS = journeyNS
     }
     
     var body: some View {
@@ -21,7 +24,8 @@ struct collapsedJourney: View {
         VStack{
             HStack{
                 TimeView(plannedTime: legs[0].plannedDeparture, realTime: legs[0].departure, prognosisType: legs[0].departurePrognosisType)
-                .padding(.leading)
+                    .matchedGeometryEffect(id: "departureTime\(varJourney.refreshToken)", in: journeyNS)
+                    .padding(.leading)
                 GeometryReader { geometry in
 
                         HStack(spacing: 4) {
@@ -35,12 +39,15 @@ struct collapsedJourney: View {
                                         .frame(minWidth: 18, maxWidth: 40)
                                         .frame(height: 30)
                                         .background(Color("Background2"))
+                                        .matchedGeometryEffect(id: "walk\(tempLeg.customId)", in: journeyNS)
                                 } else {
                                     Text(tempLeg.line!.name)
                                         //.frame(width: geometry.size.width * getTimeShare(leg: tempLeg), height: 30)
                                         .frame(maxWidth: .infinity)
                                         .frame(height: 30)
                                         .background(Color("Background2"))
+                                        .matchedGeometryEffect(id: "lineName\(tempLeg.customId)", in: journeyNS)
+
                                         //.layoutPriority(isFirst ? 1 : 0)
 
                                 }
@@ -52,8 +59,9 @@ struct collapsedJourney: View {
                 .padding(.trailing, 0)
                 
                 TimeView(plannedTime: legs[legs.count - 1].plannedArrival, realTime: legs[legs.count - 1].arrival, prognosisType: legs[legs.count - 1].arrivalPrognosisType)
-                .padding(.trailing)
-                .onAppear(){
+                    .matchedGeometryEffect(id: "arrivalTime\(varJourney.refreshToken)", in: journeyNS)
+                    .padding(.trailing)
+                    .onAppear(){
                     totalTime = getTotalTime(journey: varJourney)
                 }
                 
@@ -86,6 +94,9 @@ struct collapsedJourney: View {
     
 }
 
-#Preview {
-    collapsedJourney(varJourney: testHafas!.journeys[0])
+struct collapsedJourney_Previews: PreviewProvider{
+    @Namespace static var journeyNS
+    static var previews: some View {
+        collapsedJourney(varJourney: testHafas!.journeys[0], journeyNS: journeyNS)
+    }
 }

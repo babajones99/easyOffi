@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1CD6E82B10AEB70026799F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CD6E72B10AEB70026799F /* SettingsView.swift */; };
+		3D1DA05A2B0A6D7000D1683E /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DA0592B0A6D7000D1683E /* Test2.swift */; };
+		3D1DA05D2B0A6E5500D1683E /* MagneticScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 3D1DA05C2B0A6E5500D1683E /* MagneticScroll */; };
 		3D3840B22AD5D32600FC6D64 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3840B12AD5D32600FC6D64 /* Tile.swift */; };
 		3D3840B42AD5D4C500FC6D64 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3840B32AD5D4C500FC6D64 /* ConnectionView.swift */; };
 		3D3DD4292AEAF17100DA0C08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3DD4282AEAF17100DA0C08 /* ContentView.swift */; };
@@ -18,6 +21,12 @@
 		3D7491342A9FC6A000F1E157 /* easyOffiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7491332A9FC6A000F1E157 /* easyOffiTests.swift */; };
 		3D74913E2A9FC6A000F1E157 /* easyOffiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74913D2A9FC6A000F1E157 /* easyOffiUITests.swift */; };
 		3D7491402A9FC6A000F1E157 /* easyOffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74913F2A9FC6A000F1E157 /* easyOffiUITestsLaunchTests.swift */; };
+		3D8A7B792AF9671200CBD404 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A7B782AF9671200CBD404 /* Test.swift */; };
+		3D9AB7512AF43D5500EACD23 /* mainJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AB7502AF43D5500EACD23 /* mainJourney.swift */; };
+		3D9AB7542AF43FA100EACD23 /* mediumJourney.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D9AB7532AF43FA100EACD23 /* mediumJourney.json */; };
+		3D9AB7562AF4401300EACD23 /* sampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AB7552AF4401300EACD23 /* sampleModel.swift */; };
+		3D9AB7582AF53AD300EACD23 /* collapsedJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AB7572AF53AD300EACD23 /* collapsedJourney.swift */; };
+		3DD23EB02AF5A25700763B15 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD23EAF2AF5A25700763B15 /* TimeView.swift */; };
 		3DF928162AEEA0100074CB2D /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF928152AEEA0100074CB2D /* Rect.swift */; };
 		3DF928182AF2694F0074CB2D /* JounreyJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF928172AF2694F0074CB2D /* JounreyJsonModel.swift */; };
 		3DF9281A2AF269E60074CB2D /* ConnectionViewNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF928192AF269E60074CB2D /* ConnectionViewNetworkModel.swift */; };
@@ -48,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1CD6E72B10AEB70026799F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3D1DA0592B0A6D7000D1683E /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
 		3D3840B12AD5D32600FC6D64 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		3D3840B32AD5D4C500FC6D64 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		3D3DD4282AEAF17100DA0C08 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +73,12 @@
 		3D7491392A9FC6A000F1E157 /* easyOffiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = easyOffiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D74913D2A9FC6A000F1E157 /* easyOffiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easyOffiUITests.swift; sourceTree = "<group>"; };
 		3D74913F2A9FC6A000F1E157 /* easyOffiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easyOffiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3D8A7B782AF9671200CBD404 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3D9AB7502AF43D5500EACD23 /* mainJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainJourney.swift; sourceTree = "<group>"; };
+		3D9AB7532AF43FA100EACD23 /* mediumJourney.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mediumJourney.json; sourceTree = "<group>"; };
+		3D9AB7552AF4401300EACD23 /* sampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleModel.swift; sourceTree = "<group>"; };
+		3D9AB7572AF53AD300EACD23 /* collapsedJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collapsedJourney.swift; sourceTree = "<group>"; };
+		3DD23EAF2AF5A25700763B15 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		3DF928152AEEA0100074CB2D /* Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
 		3DF928172AF2694F0074CB2D /* JounreyJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JounreyJsonModel.swift; sourceTree = "<group>"; };
 		3DF928192AF269E60074CB2D /* ConnectionViewNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewNetworkModel.swift; sourceTree = "<group>"; };
@@ -79,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D1DA05D2B0A6E5500D1683E /* MagneticScroll in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +141,7 @@
 		3D7491212A9FC69F00F1E157 /* easyOffi */ = {
 			isa = PBXGroup;
 			children = (
+				3D9AB7522AF43F6500EACD23 /* sampleData */,
 				3DF9282C2AF2B9110074CB2D /* viewModel */,
 				3DF928292AF2B8B10074CB2D /* model */,
 				3DF928282AF2B8920074CB2D /* view */,
@@ -160,6 +179,13 @@
 			path = easyOffiUITests;
 			sourceTree = "<group>";
 		};
+		3D9AB7522AF43F6500EACD23 /* sampleData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sampleData;
+			sourceTree = "<group>";
+		};
 		3DF928212AF2A9820074CB2D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,9 +203,15 @@
 			isa = PBXGroup;
 			children = (
 				3D3840B32AD5D4C500FC6D64 /* ConnectionView.swift */,
+				3D8A7B782AF9671200CBD404 /* Test.swift */,
+				3D1DA0592B0A6D7000D1683E /* Test2.swift */,
 				3D3DD4282AEAF17100DA0C08 /* ContentView.swift */,
 				3D5E26042AEDAD3500744BA1 /* AddView.swift */,
 				3DF9282A2AF2B8D10074CB2D /* StationListView.swift */,
+				3D9AB7502AF43D5500EACD23 /* mainJourney.swift */,
+				3D9AB7572AF53AD300EACD23 /* collapsedJourney.swift */,
+				3DD23EAF2AF5A25700763B15 /* TimeView.swift */,
+				3D1CD6E72B10AEB70026799F /* SettingsView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -197,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				3DF928262AF2B5310074CB2D /* StationListViewModel.swift */,
+				3D9AB7552AF4401300EACD23 /* sampleModel.swift */,
+				3D9AB7532AF43FA100EACD23 /* mediumJourney.json */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -217,6 +251,9 @@
 			dependencies = (
 			);
 			name = easyOffi;
+			packageProductDependencies = (
+				3D1DA05C2B0A6E5500D1683E /* MagneticScroll */,
+			);
 			productName = easyOffi;
 			productReference = 3D74911F2A9FC69F00F1E157 /* easyOffi.app */;
 			productType = "com.apple.product-type.application";
@@ -290,6 +327,9 @@
 				de,
 			);
 			mainGroup = 3D7491162A9FC69F00F1E157;
+			packageReferences = (
+				3D1DA05B2B0A6E5500D1683E /* XCRemoteSwiftPackageReference "magnetic-scroll" */,
+			);
 			productRefGroup = 3D7491202A9FC69F00F1E157 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +349,7 @@
 				3DFFD7FE2AA4F26700CADF34 /* Assets.xcassets in Resources */,
 				3D74912A2A9FC6A000F1E157 /* Preview Assets.xcassets in Resources */,
 				3D7491272A9FC6A000F1E157 /* Assets.xcassets in Resources */,
+				3D9AB7542AF43FA100EACD23 /* mediumJourney.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DD23EB02AF5A25700763B15 /* TimeView.swift in Sources */,
 				3DF928162AEEA0100074CB2D /* Rect.swift in Sources */,
 				3DF928232AF2AB880074CB2D /* SearchHandler.swift in Sources */,
 				3D3840B22AD5D32600FC6D64 /* Tile.swift in Sources */,
@@ -344,10 +386,16 @@
 				3DF928182AF2694F0074CB2D /* JounreyJsonModel.swift in Sources */,
 				3D7491232A9FC69F00F1E157 /* easyOffiApp.swift in Sources */,
 				3DF9282B2AF2B8D10074CB2D /* StationListView.swift in Sources */,
+				3D9AB7562AF4401300EACD23 /* sampleModel.swift in Sources */,
+				3D9AB7582AF53AD300EACD23 /* collapsedJourney.swift in Sources */,
 				3DF9281E2AF2A7CA0074CB2D /* StationJsonModel.swift in Sources */,
+				3D1DA05A2B0A6D7000D1683E /* Test2.swift in Sources */,
 				3DF9281A2AF269E60074CB2D /* ConnectionViewNetworkModel.swift in Sources */,
+				3D9AB7512AF43D5500EACD23 /* mainJourney.swift in Sources */,
+				3D8A7B792AF9671200CBD404 /* Test.swift in Sources */,
 				3D5E26052AEDAD3500744BA1 /* AddView.swift in Sources */,
 				3DF9281C2AF287A80074CB2D /* NetworkError.swift in Sources */,
+				3D1CD6E82B10AEB70026799F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +726,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D1DA05B2B0A6E5500D1683E /* XCRemoteSwiftPackageReference "magnetic-scroll" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Poppin-Technologies/magnetic-scroll.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D1DA05C2B0A6E5500D1683E /* MagneticScroll */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D1DA05B2B0A6E5500D1683E /* XCRemoteSwiftPackageReference "magnetic-scroll" */;
+			productName = MagneticScroll;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D7491172A9FC69F00F1E157 /* Project object */;
 }

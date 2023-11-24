@@ -9,23 +9,31 @@ import Foundation
 struct Hafas: Codable {
     let earlierRef: String?
     let laterRef: String?
-    let journeys: [Journey]
+    var journeys: [Journey]
     let realtimeDataUpdatedAt: Int?
 }
 
 // MARK: - Update
 struct Update: Codable {
-    let journey: Journey
+    var journey: Journey
     let realtimeDataUpdatedAt: Int?
 }
 
 // MARK: - Journey
-struct Journey: Codable {
+struct Journey: Codable, Identifiable {
+    let customId = UUID()
     let type: String?
     let legs: [Leg]
     let refreshToken: String
     let price: Price?
     let remarks: [JSONAny]?
+    var collapsed = true
+    
+    var id: UUID {customId}
+    
+    enum CodingKeys: String, CodingKey {
+        case type, legs, refreshToken, price, remarks
+    }
 }
 
 // MARK: - Leg
@@ -46,9 +54,10 @@ struct Leg: Codable {
     let arrivalPlatform, plannedArrivalPlatform, departurePlatform: String?
     let plannedDeparturePlatform: String?
     let remarks: [Remark]?
+    let distance: Int?
 
     enum CodingKeys: String, CodingKey {
-        case origin, destination, departure, plannedDeparture, departureDelay, arrival, plannedArrival, arrivalDelay, reachable
+        case origin, destination, departure, plannedDeparture, departureDelay, arrival, plannedArrival, arrivalDelay, reachable, distance
         case tripID = "tripId"
         case line, direction, currentLocation, arrivalPlatform, plannedArrivalPlatform, arrivalPrognosisType, departurePlatform, plannedDeparturePlatform, departurePrognosisType, remarks
     }

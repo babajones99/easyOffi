@@ -70,64 +70,89 @@ struct ContentView: View {
     
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            LazyVGrid(columns: vGridLayout) {
+        NavigationStack {
+            VStack(alignment: .trailing) {
                 
-                ForEach(tiles, id: \.self) { tile in
-                    
-                    Rect(tile: tile, lineStartPoint: $lineStartPoint, lineEndPoint: $lineEndPoint, dragStartTile: $dragStartTile, dragEndTile: $dragEndTile, showConnectionSheet: $showConnectionSheet)
-                        .overlay(
-                            GeometryReader { geo in
-                                Color.clear
-                                    .onAppear {
-                                        tile.x = geo.frame(in: .global).origin.x
-                                        tile.y = geo.frame(in: .global).origin.y
-
-                                    }
-                            }
+                NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gearshape.fill")
+                        .resizable()
+                        .scaledToFill() // add if you need
+                        .frame(width: 25.0, height: 25.0)
+                        .padding()
+                }
+                /*Button(action: {
+                    print("Settings")
+                }) {
+                    Image(systemName: "gearshape.fill")
+                        .resizable()
+                        .scaledToFill() // add if you need
+                        .frame(width: 25.0, height: 25.0)
+                        .padding()
+                }*/
+                
+                ZStack(alignment: .leading) {
+                    LazyVGrid(columns: vGridLayout) {
+                        
+                        ForEach(tiles, id: \.self) { tile in
                             
-                        )
-                    
-                    
-                }
-                
-                //Button to add a new Station
-                if(tiles.count < 12){
-                    
-                    HStack {
-                        Button (action: {
-                            showAddSheet = true
-
-                        }, label: {
-                            Text("Station hinzufügen")
-                                .frame(height: 100)
-                                .frame(width: 170)
-                                .foregroundColor(Color("Foreground"))
+                            Rect(tile: tile, lineStartPoint: $lineStartPoint, lineEndPoint: $lineEndPoint, dragStartTile: $dragStartTile, dragEndTile: $dragEndTile, showConnectionSheet: $showConnectionSheet)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color("Foreground"), style: StrokeStyle(
-                                            lineWidth: 3, dash: [10, 8]
-                                        )
-                                        )
+                                    GeometryReader { geo in
+                                        Color.clear
+                                            .onAppear {
+                                                tile.x = geo.frame(in: .global).origin.x
+                                                tile.y = geo.frame(in: .global).origin.y
+
+                                            }
+                                    }
+                                    
                                 )
-                        })
+                            
+                            
+                        }
+                        
+                        //Button to add a new Station
+                        if(tiles.count < 12){
+                            
+                            HStack {
+                                Button (action: {
+                                    showAddSheet = true
+
+                                }, label: {
+                                    Text("Station hinzufügen")
+                                        .frame(height: 100)
+                                        .frame(width: 170)
+                                        .foregroundColor(Color("Foreground"))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("Foreground"), style: StrokeStyle(
+                                                    lineWidth: 3, dash: [10, 8]
+                                                )
+                                                )
+                                        )
+                                })
+                            }
+                            .padding(10)
+                        }
+                        
                     }
-                    .padding(10)
+                    
                 }
+                .padding(.top)
+
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+                .background(Color("Background"))
                 
+                .sheet(isPresented: $showAddSheet, content: {
+                    AddView()
+                })
+                .sheet(isPresented: $showConnectionSheet, content: {
+                    ConnectionView(startTile: dragStartTile, endTile: dragEndTile)
+                        .background(Color("Background4"))
+
+            })
             }
-            
         }
-        
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color("Background"))
-        
-        .sheet(isPresented: $showAddSheet, content: {
-            AddView()
-        })
-        .sheet(isPresented: $showConnectionSheet, content: {
-            ConnectionView(startTile: dragStartTile, endTile: dragEndTile)
-        })
         
         
     }
