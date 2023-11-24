@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("localization") var localization = true
     @AppStorage("nationalExpress") var nationalExpress = false
+    @AppStorage("walkingSpeed") var walkingSpeed = "normal"
 
 
     var body: some View {
@@ -35,6 +36,20 @@ struct SettingsView: View {
                                 .foregroundStyle(Color.white)
                         }
                         Toggle("Fernverkehr?", isOn: $nationalExpress)
+                    }
+                    HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(.green)
+                                .frame(width: 28, height: 28)
+                            Image(systemName: "figure.walk")
+                                .foregroundStyle(Color.white)
+                        }
+                        Picker("Gehgeschwindigkeit", selection: $walkingSpeed){
+                            Text("Langsam").tag("slow")
+                            Text("Normal").tag("normal")
+                            Text("Schnell").tag("fast")
+                        }
                     }
                 }
             }

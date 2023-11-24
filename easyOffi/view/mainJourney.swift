@@ -111,10 +111,12 @@ struct mainJourney: View {
     
     func transportIcon(productName: String) -> String{
         switch(productName){
-        case "RB", "RE", "IR", "S", "U", "ME":
+        case "RB", "RE", "IR", "S", "U", "ME", "FLX":
             return "tram.fill"
         case "AST", "Bus":
             return "bus.fill"
+        case "ICE", "IC":
+            return "train.side.front.car"
         default:
             return "questionmark.diamond"
         }
