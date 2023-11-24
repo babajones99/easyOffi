@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class JourneyCall {
     let startTile: Tile
     let endTile: Tile
+    
+    @AppStorage("nationalExpress") var nationalExpress = false
+
     
     init(startTile: Tile, endTile: Tile) {
         self.startTile = startTile
@@ -19,7 +23,7 @@ class JourneyCall {
     
     func getHafas() async throws -> Hafas {
         
-        let url = URL(string: "https://v6.db.transport.rest/journeys?from=\(startTile.station_id)&to=\(endTile.station_id)&nationalExpress=false&national=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+        let url = URL(string: "https://v6.db.transport.rest/journeys?from=\(startTile.station_id)&to=\(endTile.station_id)&nationalExpress=\(nationalExpress ? "true" : "false")&national=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
         
         let request = URLRequest(url: url!)
         
