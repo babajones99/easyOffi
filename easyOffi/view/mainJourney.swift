@@ -11,10 +11,13 @@ struct mainJourney: View {
     private let varJourney: Journey
     let journeyNS: Namespace.ID
     
+    
     init(varJourney: Journey, journeyNS: Namespace.ID) {
         self.varJourney = varJourney
         self.journeyNS = journeyNS
     }
+    
+    @AppStorage("platformOnChange") var platformOnChange = false
     
     var body: some View {
         let tempFirstJourneyLegs = varJourney.legs
@@ -64,9 +67,20 @@ struct mainJourney: View {
                                     .matchedGeometryEffect(id: "station\(leg.origin.name)", in: journeyNS, isSource: false)
                                 
                                 if(leg.departurePlatform != nil){
-                                    Text("Gleis \(leg.departurePlatform!)")
-                                        .font(isFirst ? Font.title3.weight(.bold) : Font.body)
-                                        .foregroundStyle(leg.departurePlatform == leg.plannedDeparturePlatform ? Color("Weak") : Color.red)
+                                    if(platformOnChange){
+                                        if(leg.departurePlatform != leg.plannedDeparturePlatform){
+                                            Text("Gleis \(leg.departurePlatform!)")
+                                                .font(isFirst ? Font.title3.weight(.bold) : Font.body)
+                                                .foregroundStyle(Color.red)
+                                        }
+                                        
+                                    }else{
+                                        Text("Gleis \(leg.departurePlatform!)")
+                                            .font(isFirst ? Font.title3.weight(.bold) : Font.body)
+                                            .foregroundStyle(leg.departurePlatform == leg.plannedDeparturePlatform ? Color("Weak") : Color.red)
+                                    }
+                                    
+                                    
                                 }
                             }
                             
@@ -76,9 +90,9 @@ struct mainJourney: View {
                         
                         HStack {
                             /*VerticalLine()
-                                .stroke(Color("Accent"), style: StrokeStyle(lineWidth: 4))
-                                .frame(width: 10, height: 80)
-                                .padding(.top, -15)*/
+                             .stroke(Color("Accent"), style: StrokeStyle(lineWidth: 4))
+                             .frame(width: 10, height: 80)
+                             .padding(.top, -15)*/
                             HStack(alignment: .center) {
                                 Label(leg.line!.name, systemImage: transportIcon(productName: leg.line!.productName))
                                 Image(systemName: "arrow.right")
@@ -114,9 +128,20 @@ struct mainJourney: View {
                                     .matchedGeometryEffect(id: "station\(leg.destination.name)", in: journeyNS, isSource: false)
                                 
                                 if(leg.arrivalPlatform != nil){
-                                    Text("Gleis \(leg.arrivalPlatform!)")
-                                        .font(isLast ? Font.title3.weight(.bold) : Font.callout)
-                                        .foregroundStyle(leg.arrivalPlatform == leg.plannedArrivalPlatform ? Color("Weak") : Color.red)
+                                    if(platformOnChange){
+                                        if(leg.arrivalPlatform != leg.plannedArrivalPlatform){
+                                            Text("Gleis \(leg.arrivalPlatform!)")
+                                                .font(isFirst ? Font.title3.weight(.bold) : Font.body)
+                                                .foregroundStyle(Color.red)
+                                        }
+                                        
+                                    }else{
+                                        Text("Gleis \(leg.arrivalPlatform!)")
+                                            .font(isFirst ? Font.title3.weight(.bold) : Font.body)
+                                            .foregroundStyle(leg.arrivalPlatform == leg.plannedArrivalPlatform ? Color("Weak") : Color.red)
+                                    }
+                                    
+                                    
                                 }
                             }
                             

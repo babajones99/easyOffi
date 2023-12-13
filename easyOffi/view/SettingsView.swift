@@ -11,6 +11,7 @@ struct SettingsView: View {
     @AppStorage("localization") var localization = true
     @AppStorage("nationalExpress") var nationalExpress = false
     @AppStorage("walkingSpeed") var walkingSpeed = "normal"
+    @AppStorage("platformOnChange") var platformOnChange = false
 
 
     var body: some View {
@@ -51,6 +52,19 @@ struct SettingsView: View {
                             Text("Schnell").tag("fast")
                         }
                     }
+                }
+                Section(header: Text("Ansicht")) {
+                    HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(.blue)
+                                .frame(width: 28, height: 28)
+                            Image(systemName: "number")
+                                .foregroundStyle(Color.white)
+                        }
+                        Toggle("Gleis nur bei Gleisänderung anzeigen", isOn: $platformOnChange)
+                    }
+
                 }
             }
             .navigationBarTitle("Einstellungen")
