@@ -40,72 +40,103 @@ struct mainJourney: View {
                     }
                     
                 } else {
-                    HStack {
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundStyle(Color("Accent"))
-                        
-                        if(isFirst){
-                            TimeView(plannedTime: leg.plannedDeparture, realTime: leg.departure, prognosisType: leg.departurePrognosisType)
-                                .matchedGeometryEffect(id: "departureTime\(varJourney.refreshToken)", in: journeyNS)
+                    VStack (alignment: .leading){
+                        HStack (alignment: .top){
+                            Circle()
+                                .frame(width: 10, height: 10)
+                                .foregroundStyle(Color("Accent"))
+                                .padding(.top, 8)
+                            
+                            if(isFirst){
+                                TimeView(plannedTime: leg.plannedDeparture, realTime: leg.departure, prognosisType: leg.departurePrognosisType)
+                                    .matchedGeometryEffect(id: "departureTime\(varJourney.refreshToken)", in: journeyNS)
+                                    .padding(.top, 3)
+                            }
+                            else{
+                                TimeView(plannedTime: leg.plannedDeparture, realTime: leg.departure, prognosisType: leg.departurePrognosisType)
+                                
+                            }
+                            
+                            VStack (alignment: .leading){
+                                Text(leg.origin.name)
+                                    .font(isFirst ? Font.title.weight(.bold) : Font.body)
+                                    .padding(.trailing)
+                                    .matchedGeometryEffect(id: "station\(leg.origin.name)", in: journeyNS, isSource: false)
+                                
+                                if(leg.departurePlatform != nil){
+                                    Text("Gleis \(leg.departurePlatform!)")
+                                        .font(isFirst ? Font.title3.weight(.bold) : Font.body)
+                                        .foregroundStyle(leg.departurePlatform == leg.plannedDeparturePlatform ? Color("Weak") : Color.red)
+                                }
+                            }
+                            
                         }
-                        else{
-                            TimeView(plannedTime: leg.plannedDeparture, realTime: leg.departure, prognosisType: leg.departurePrognosisType)
-
+                        
+                        
+                        
+                        HStack {
+                            /*VerticalLine()
+                                .stroke(Color("Accent"), style: StrokeStyle(lineWidth: 4))
+                                .frame(width: 10, height: 80)
+                                .padding(.top, -15)*/
+                            HStack(alignment: .center) {
+                                Label(leg.line!.name, systemImage: transportIcon(productName: leg.line!.productName))
+                                Image(systemName: "arrow.right")
+                                Text(leg.direction!)
+                            }
+                            .frame(maxWidth: 300, maxHeight: 50)
+                            .background(Color("Background3"))
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .padding(.leading)
+                            .matchedGeometryEffect(id: "lineName\(leg.customId)", in: journeyNS)
+                            
                         }
                         
-                        Text(leg.origin.name)
-                            .font(isFirst ? Font.title.weight(.bold) : Font.body)
-                            .padding(.trailing)
-                            .matchedGeometryEffect(id: "station\(leg.origin.name)", in: journeyNS, isSource: false)
-
+                        
+                        HStack (alignment: .bottom){
+                            Circle()
+                                .frame(width: 10, height: 10)
+                                .foregroundStyle(Color("Accent"))
+                                .padding(.bottom, 8)
+                            
+                            if(isLast){
+                                TimeView(plannedTime: leg.plannedArrival, realTime: leg.arrival, prognosisType: leg.arrivalPrognosisType)
+                                    .matchedGeometryEffect(id: "arrivalTime\(varJourney.refreshToken)", in: journeyNS)
+                                    .padding(.bottom, 3)
+                            } else {
+                                TimeView(plannedTime: leg.plannedArrival, realTime: leg.arrival, prognosisType: leg.arrivalPrognosisType)
+                            }
+                            
+                            VStack (alignment: .leading){
+                                Text(leg.destination.name)
+                                    .font(isLast ? Font.title.weight(.bold) : Font.body)
+                                    .padding(.trailing)
+                                    .matchedGeometryEffect(id: "station\(leg.destination.name)", in: journeyNS, isSource: false)
+                                
+                                if(leg.arrivalPlatform != nil){
+                                    Text("Gleis \(leg.arrivalPlatform!)")
+                                        .font(isLast ? Font.title3.weight(.bold) : Font.callout)
+                                        .foregroundStyle(leg.arrivalPlatform == leg.plannedArrivalPlatform ? Color("Weak") : Color.red)
+                                }
+                            }
+                            
+                        }
                     }
-
-                    
-                    HStack {
+                    .overlay (alignment: .leading){
                         VerticalLine()
                             .stroke(Color("Accent"), style: StrokeStyle(lineWidth: 4))
-                            .frame(width: 10, height: 80)
-                        HStack(alignment: .center) {
-                            Label(leg.line!.name, systemImage: transportIcon(productName: leg.line!.productName))
-                            Image(systemName: "arrow.right")
-                            Text(leg.direction!)
-                        }
-                        .frame(maxWidth: 300, maxHeight: 50)
-                        .background(Color("Background3"))
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                        .padding(.leading)
-                        .matchedGeometryEffect(id: "lineName\(leg.customId)", in: journeyNS)
-
+                            .frame(width: 10)
+                            .padding(.top, 33)
+                            .padding(.bottom, 33)
                     }
                     
-                    
-                    HStack {
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundStyle(Color("Accent"))
-                        
-                        if(isLast){
-                            TimeView(plannedTime: leg.plannedArrival, realTime: leg.arrival, prognosisType: leg.arrivalPrognosisType)
-                                .matchedGeometryEffect(id: "arrivalTime\(varJourney.refreshToken)", in: journeyNS)
-                        } else {
-                            TimeView(plannedTime: leg.plannedArrival, realTime: leg.arrival, prognosisType: leg.arrivalPrognosisType)
-                        }
-
-                        Text(leg.destination.name)
-                            .font(isLast ? Font.title.weight(.bold) : Font.body)
-                            .padding(.trailing)
-                            .matchedGeometryEffect(id: "station\(leg.destination.name)", in: journeyNS, isSource: false)
                 }
                 
-               
-                    
-                }
                 
             }
         }
         
-
+        
         
     }
     
@@ -115,8 +146,10 @@ struct mainJourney: View {
             return "tram.fill"
         case "AST", "Bus":
             return "bus.fill"
-        case "ICE", "IC":
+        case "ICE":
             return "train.side.front.car"
+        case "IC":
+            return "train.side.rear.car"
         default:
             return "questionmark.diamond"
         }
